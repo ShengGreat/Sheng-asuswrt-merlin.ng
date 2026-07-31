@@ -309,10 +309,10 @@ function init(){
     else if(isSupport("tuf")){
         document.querySelector('#ddns_copy').classList.add('tuf');
     }
-
-    if(isSupport("noasusddns")){
+	/*注释此代码，恢复中国区华硕自带动态域名服务*/
+    /*if(isSupport("noasusddns")){
         $("#ddns_server_x option[value='WWW.ASUS.COM']").remove();
-    }
+    }*/
 }
 
 function update_ddns_wan_unit_option(){

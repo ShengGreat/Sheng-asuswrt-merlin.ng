@@ -25137,14 +25137,14 @@ int init_nvram2(void)
 		nvram_set("webdav_lock_interval", "2");
 	}
 #endif
-
+	/*注释此代码，恢复中国区华硕自带动态域名服务*/
 	/* 2024/12/25 stop asuscomm.cn service. reset values of ddns_enable_x and ddns_hostname_x if WWW.ASUS.COM.CN is used. */
-	if(!strcmp(nvram_safe_get("ddns_server_x"), "WWW.ASUS.COM.CN") || ( noasusddns() && !strcmp(nvram_safe_get("ddns_server_x"), "WWW.ASUS.COM"))){
+	/*if(!strcmp(nvram_safe_get("ddns_server_x"), "WWW.ASUS.COM.CN") || ( noasusddns() && !strcmp(nvram_safe_get("ddns_server_x"), "WWW.ASUS.COM"))){
 		nvram_set("ddns_enable_x", "0");
 		nvram_set("ddns_hostname_x", "");
 		nvram_set("ddns_server_x", "");
 		nvram_commit();
-	}
+	}*/
 
 	detect_vul_scan();
 	init_asus_pp_eula();
