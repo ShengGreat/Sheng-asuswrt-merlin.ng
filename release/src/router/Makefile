@@ -4847,9 +4847,9 @@ iptables-1.8.11-clean:
 
 miniupnpd/config.h: shared/version.h
 ifeq ($(RTCONFIG_IGD2),y)
-	cd miniupnpd-igdv2 && ./configure --vendorcfg --leasefile $(if $(RTCONFIG_IPV6),--ipv6,) --igd2 --portinuse $(if $(RTCONFIG_AURASYNC),--aurasync,) $(if $(RTCONFIG_GEFORCENOW),--nvgfn) --iptablespath=$(TOP)/$(IPTABLES)
+	cd miniupnpd-igdv2 && ./configure --vendorcfg --leasefile $(if $(RTCONFIG_IPV6),--ipv6,) --igd2 --portinuse $(if $(RTCONFIG_AURASYNC),--aurasync,) $(if $(RTCONFIG_GEFORCENOW),--nvgfn) --iptablespath=$(TOP)/$(IPTABLES) --disable-pppconn
 endif
-	cd miniupnpd && ./configure --vendorcfg --leasefile --portinuse $(if $(RTCONFIG_AURASYNC),--aurasync,) $(if $(RTCONFIG_GEFORCENOW),--nvgfn) --iptablespath=$(TOP)/$(IPTABLES)
+	cd miniupnpd && ./configure --vendorcfg --leasefile --portinuse $(if $(RTCONFIG_AURASYNC),--aurasync,) $(if $(RTCONFIG_GEFORCENOW),--nvgfn) --iptablespath=$(TOP)/$(IPTABLES) --disable-pppconn
 
 miniupnpd: $(IPTABLES) e2fsprogs miniupnpd/config.h
 	@$(SEP)
@@ -10921,9 +10921,9 @@ endif
 
 fdt-install: fdt
 	@$(eval TOPX_DIR:=$(firstword $(wildcard $(TOP_PLATFORM)/fdt/dtc$(DTC_VER)) $(wildcard fdt/dtc$(DTC_VER))))
-	$(MAKE) -C $(TOPX_DIR) INSTALLDIR=$(INSTALLDIR)/fdt/dtc$(DTC_VER) install
+	$(MAKE) -C $(TOPX_DIR) INSTALLDIR=$(INSTALLDIR)/fdt/dtc$(DTC_VER) PREFIX=$(INSTALLDIR)/fdt/dtc$(DTC_VER) install
 ifeq ($(HND_ROUTER_BE_4916),y)
-	rm -f ~/bin/dtc
+	rm -f $(INSTALLDIR)/fdt/dtc$(DTC_VER)/bin/dtc
 endif
 
 # .PHONY : fdt
