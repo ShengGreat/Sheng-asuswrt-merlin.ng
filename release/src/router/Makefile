@@ -10533,11 +10533,7 @@ endif
 	$(MAKE) -C $(TOPX_DIR)/dtc$(DTC_VER) EXTRA_CFLAGS="-I$(TOP)/libyaml/include" LDFLAGS="-L$(TOP)/libyaml/src/.libs"
 
 fdt-install: fdt
-	@$(eval TOPX_DIR:=$(firstword $(wildcard $(TOP_PLATFORM)/fdt/dtc$(DTC_VER)) $(wildcard fdt/dtc$(DTC_VER))))
-	$(MAKE) -C $(TOPX_DIR) INSTALLDIR=$(INSTALLDIR)/fdt/dtc$(DTC_VER) PREFIX=$(INSTALLDIR)/fdt/dtc$(DTC_VER) install
-ifeq ($(HND_ROUTER_BE_4916),y)
-	rm -f $(INSTALLDIR)/fdt/dtc$(DTC_VER)/bin/dtc
-endif
+	@true
 
 # .PHONY : fdt
 
@@ -11610,7 +11606,7 @@ libimobiledevice-1.3.0/Makefile:
 	$(MAKE) libimobiledevice-1.3.0-configure
 
 libimobiledevice-1.3.0: libimobiledevice-1.3.0/Makefile
-	$(MAKE) -C $@ && $(MAKE) $@-stage
+	$(MAKE) -C $@ $(PARALLEL_BUILD) && $(MAKE) $@-stage
 
 libimobiledevice-1.3.0-install: libimobiledevice-1.3.0
 	install -D libimobiledevice-1.3.0/tools/idevicebackup $(INSTALLDIR)/libimobiledevice-1.3.0/usr/bin/idevicebackup
