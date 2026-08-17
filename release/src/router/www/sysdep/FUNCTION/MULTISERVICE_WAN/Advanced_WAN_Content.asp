@@ -4193,7 +4193,7 @@ function change_wizard(o, id){
 										</tr>
 										<tr style="display:none">
 											<th>
-												<a class="hintstyle" href="javascript:void(0);" onClick="openHint(7,6);"><#WANPPPAuthText#></a>
+												<a class="hintstyle" href="javascript:void(0);" onClick="openHint(7,29);"><#WANPPPAuthText#></a>
 											</th>
 											<td>
 												<select class="input_option" name="wan_pppoe_auth">
@@ -4353,14 +4353,14 @@ function change_wizard(o, id){
 										</td>
 									</tr>
 									<tr>
-										<th><a class="hintstyle" href="javascript:void(0);" onClick=""><#Extend_TTL_Value#></a></th>
+										<th><#Extend_TTL_Value#></th>
 										<td>
 											<input type="radio" name="ttl_inc_enable" class="input" value="1" <% nvram_match("ttl_inc_enable", "1", "checked"); %>><#checkbox_Yes#>
 											<input type="radio" name="ttl_inc_enable" class="input" value="0" <% nvram_match("ttl_inc_enable", "0", "checked"); %>><#checkbox_No#>
 										</td>
 									</tr>	
 									<tr>
-										<th><a class="hintstyle" href="javascript:void(0);" onClick=""><#Spoof_TTL_Value#></a></th>
+										<th><#Spoof_TTL_Value#></th>
 										<td>
 											<input type="radio" name="ttl_spoof_enable" class="input" value="1" <% nvram_match("ttl_spoof_enable", "1", "checked"); %>><#checkbox_Yes#>
 											<input type="radio" name="ttl_spoof_enable" class="input" value="0" <% nvram_match("ttl_spoof_enable", "0", "checked"); %>><#checkbox_No#>
